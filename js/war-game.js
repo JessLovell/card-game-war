@@ -39,3 +39,7 @@ function shuffleDeck (){
     completeDeck[randomIndex] = placeholder;
   }
 }
+function dealTheDeck (){
+  var computerPlayerDeck = completeDeck.splice(25, 26);
+  var userPlayerDeck = completeDeck;
+}
