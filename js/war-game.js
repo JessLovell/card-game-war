@@ -29,4 +29,13 @@ function makeEachCard (){
     }
   }
 }
-
+// Using this function, you can pass any array to be shuffled. Change in the parameter passed into "completeDeck".
+function shuffleDeck (){
+  var unshuffled = completeDeck.length, placeholder, randomIndex;
+  while (unshuffled){
+    randomIndex = Math.floor(Math.random() * unshuffled--);
+    placeholder = completeDeck[unshuffled];
+    completeDeck[unshuffled] = completeDeck[randomIndex];
+    completeDeck[randomIndex] = placeholder;
+  }
+}
