@@ -1,6 +1,6 @@
 'use strict';
 
-completeDeck = []; //array to hold all cards in completeDeck
+var completeDeck = []; //array to hold all cards in completeDeck
 
 function DeckCreator (name, value){
   this.name = name;
