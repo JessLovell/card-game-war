@@ -2,9 +2,18 @@
 
 var completeDeck = []; //array to hold all cards in completeDeck
 
+var computerPlayerDeck = [];
+var userPlayerDeck = [];
+
+var computerHoldPile = [];
+var userHoldPile = [];
+
+var gamePlayField = [];
+
+
 function DeckCreator (name, value){
   this.name = name;
-  this.path = 'img/${name}.png';
+  this.path = `img/${name}.png`;
   this.value = value;
   completeDeck.push(this);
 }
@@ -29,6 +38,7 @@ function makeEachCard (){
     }
   }
 }
+
 // Using this function, you can pass any array to be shuffled. Change in the parameter passed into "completeDeck".
 function shuffleDeck (){
   var unshuffled = completeDeck.length, placeholder, randomIndex;
@@ -39,7 +49,39 @@ function shuffleDeck (){
     completeDeck[randomIndex] = placeholder;
   }
 }
+
 function dealTheDeck (){
-  var computerPlayerDeck = completeDeck.splice(25, 26);
-  var userPlayerDeck = completeDeck;
+  computerPlayerDeck = completeDeck.splice(25, 26);
+  userPlayerDeck = completeDeck;
+}
+
+//WE NEED THIS FUNCTION TO MA
+function chooseYourCard (){
+  var computerCard = computerPlayerDeck[0].name;
+  var userCard = userPlayerDeck[0].name;
+
+  gamePlayField = [computerPlayerDeck[0], userPlayerDeck[0]];
+}
+
+function displayCard (){
+  //display stuff
+}
+
+function compareCards (){
+  if (computerPlayerDeck[0].value > userPlayerDeck[0].value){
+    computerHoldPile.push(computerPlayerDeck[0]);
+    computerHoldPile.push(userPlayerDeck[0]);
+
+    computerPlayerDeck.splice(0, 1);
+    userPlayerDeck.splice(0, 1);
+  }
+  else if (userPlayerDeck[0].value > computerPlayerDeck[0].value){
+    userHoldPile.push(computerPlayerDeck[0]);
+    userHoldPile.push(userPlayerDeck[0]);
+
+    computerPlayerDeck.splice(0, 1);
+    userPlayerDeck.splice(0, 1);
+  } else {
+    console.log('WAR!');
+  }
 }
