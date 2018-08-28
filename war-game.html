@@ -2,22 +2,45 @@
 <html>
 
 <head>
-    <title>TITLE GOES HERE!</title>
+    <title>WAR Playfield</title>
     <link href="css/reset.css" type="text/css" rel="stylesheet" />
     <link href="css/war-game.css" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Anton" rel="stylesheet">
 </head>
 
 <body>
     <header>
         <nav>
             <div class='button-group'>
-                <a href="https://jesslovell.github.io/card-game-war/index.html" class="button">Home</a>
-                <button>Instructions</button>
-                <a href="https://jesslovell.github.io/card-game-war/about-us.html" class="button">About Us</a>
+                <a href="index.html">Home</a>
+                <a href="war-game.html">Play Page</a>
+                <a href="about-us.html">About Us</a>
             </div>
         </nav>
     </header>
 
+    <main>
+        <h1>WAR</h1>
+        <h2>Set 1 of X</h2>
+        <!-- needs number fed into set -->
+
+        <div class='decks'>
+            <img id='cpu-deck' src='img/purple_back.png' />
+            <img id='in-play-card' src='img/KD.png' />
+            <img id='in-play-card' src='img/QH.png' />
+            <img id='user-deck' src='img/yellow_back.png' />
+        </div>
+
+        <h3 id='cpu'>Nemesis</h3>
+        <h3 id='user'>(player)</h3>
+        <hr><hr>
+
+        <div class='card-count'>
+            <img src='img/JD.png' />
+            <img src='img/10D.png' />
+
+        </div>
+    </main>
     <footer>
 
     </footer>
