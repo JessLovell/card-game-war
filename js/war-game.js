@@ -55,13 +55,33 @@ function dealTheDeck (){
   userPlayerDeck = completeDeck;
 }
 
+//WE NEED THIS FUNCTION TO MA
 function chooseYourCard (){
   var computerCard = computerPlayerDeck[0].name;
   var userCard = userPlayerDeck[0].name;
 
-  gamePlayField = [computerPlayerDeck[0].name, userPlayerDeck[0].name];
-
-  computerPlayerDeck.splice(0, 1);
-  userPlayerDeck.splice(0, 1);
+  gamePlayField = [computerPlayerDeck[0], userPlayerDeck[0]];
 }
 
+function displayCard (){
+  //display stuff
+}
+
+function compareCards (){
+  if (computerPlayerDeck[0].value > userPlayerDeck[0].value){
+    computerHoldPile.push(computerPlayerDeck[0]);
+    computerHoldPile.push(userPlayerDeck[0]);
+
+    computerPlayerDeck.splice(0, 1);
+    userPlayerDeck.splice(0, 1);
+  }
+  else if (userPlayerDeck[0].value > computerPlayerDeck[0].value){
+    userHoldPile.push(computerPlayerDeck[0]);
+    userHoldPile.push(userPlayerDeck[0]);
+
+    computerPlayerDeck.splice(0, 1);
+    userPlayerDeck.splice(0, 1);
+  } else {
+    console.log('WAR!');
+  }
+}
