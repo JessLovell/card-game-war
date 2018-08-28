@@ -122,3 +122,19 @@ select {
     cursor: pointer;
 
 }
+
+p {
+    width: 960px;
+    margin-top: 10px;
+    margin-left: 15%;
+    text-align: justify;
+    font-family: 'Anton', cursive;
+    font-size: 16pt;
+    letter-spacing: 2px;
+    line-height: 24pt;
+    text-shadow:
+    -1px -1px 0 rgb(255, 255, 255),  
+     1px -1px 0 rgb(255, 255, 255),
+     -1px 1px 0 rgb(255, 255, 255),
+      1px 1px 0 rgb(255, 255, 255); 
+}
