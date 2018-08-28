@@ -1,4 +1,111 @@
+html { 
+    background: url("../img/standard-arena.jpg") no-repeat center center fixed; 
+    background-size: cover;
+  }
+
 body {
-font-family: 'Alfa Slab One', cursive;
-font-family: 'Hind', sans-serif;
+  font-family: 'Anton', sans-serif;
+}
+
+header {
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+div.button-group {
+    float: right;
+    margin-top: 40px;
+    font-size: 20pt;
+    margin-right: 20px;
+}
+
+nav a {
+    background: white;
+    opacity: 0.5;
+    color: black;
+    border: 3px black;
+    text-decoration: none;
+    padding: 5px;
+    margin-left: 5px;
+    font-weight: bolder;
+}
+
+h1 {
+    display: block;
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 200pt;
+    text-align: center;
+    text-shadow:
+    -1px -1px 0 rgb(255, 255, 255),  
+     1px -1px 0 rgb(255, 255, 255),
+     -1px 1px 0 rgb(255, 255, 255),
+      1px 1px 0 rgb(255, 255, 255);
+      margin-bottom: 20px;
+}
+
+h2 {
+    display: block;
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 48pt;
+    text-align: center;
+    letter-spacing: 5px;
+    text-shadow:
+    -1px -1px 0 rgb(255, 255, 255),  
+     1px -1px 0 rgb(255, 255, 255),
+     -1px 1px 0 rgb(255, 255, 255),
+      1px 1px 0 rgb(255, 255, 255); 
+}
+
+form {
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 24pt;
+    color: black;
+    text-shadow:
+    -1px -1px 0 rgb(255, 255, 255),  
+     1px -1px 0 rgb(255, 255, 255),
+     -1px 1px 0 rgb(255, 255, 255),
+      1px 1px 0 rgb(255, 255, 255);
+      margin-bottom: 10px;
+}
+
+input {
+    margin-top: 7px;
+    font-size: 22pt;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 22pt;
+    color: black;
+    text-shadow:
+    -1px -1px 0 rgb(255, 255, 255),  
+     1px -1px 0 rgb(255, 255, 255),
+     -1px 1px 0 rgb(255, 255, 255),
+      1px 1px 0 rgb(255, 255, 255);
+      margin-bottom: 7px;
+}
+
+select {
+    display: block;
+    margin-left: 42.5%;
+    font-weight: bold;
+    font-size: 22pt;
+    color: black;
+  
+}
+
+button {
+    background: white;
+    color: black;
+    border: 3px black;
+    text-decoration: none;
+    padding: 5px;
+    margin-left: 5px;
+    font-weight: bolder;
 }

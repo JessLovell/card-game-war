@@ -1,4 +1,9 @@
+html { 
+    background: url("../img/standard-arena.jpg") no-repeat center center fixed; 
+    background-size: cover;
+}
+
 body {
     font-family: 'Alfa Slab One', cursive;
     font-family: 'Hind', sans-serif;
-    }
+}
