@@ -1,18 +1,17 @@
 'use strict';
 
 var completeDeck = []; //array to hold all cards in completeDeck
-
 var computerPlayerDeck = [];
 var userPlayerDeck = [];
-
 var computerHoldPile = [];
 var userHoldPile = [];
-
 var gamePlayField = [];
 
 var userCardTracker = 0;
 var computerCardTracker = 0;
 
+var userEl = document.getElementById('in-play-user');
+var cpuEl = document.getElementById('in-play-cpu');
 
 function DeckCreator (name, value){
   this.name = name;
@@ -169,3 +168,11 @@ function war (){
     return;
   }
 }
+
+function userDeckClick(){
+  userEl.src = userPlayerDeck[0].path;
+  cpuEl.src = computerPlayerDeck[0].path;
+  setInterval(compareCards(), 2000);
+}
+
+document.getElementById("user-deck").addEventListener('click', userDeckClick);
