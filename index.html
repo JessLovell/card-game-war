@@ -22,12 +22,12 @@
     <h1>WAR</h1>
     <!-- <img src='img/aces.png' alt='Aces High'> -->
 
-    <form>WHAT IS YOUR NAME, MORTAL?!
+    <form>What is Your Name, Mortal?!
         <br>
-        <input type='text' name='name'>
+        <input id='name' type='text' name='name'>
     </form>
 
-    <label for='number-sets'>HOW MANY SETS WILL YOU PLAY?
+    <label for='number-sets'>How Many Sets Will You Play?
         <br>
     </label>
     <select id='number-sets' name='text'>
@@ -37,7 +37,10 @@
         <option value="7">Best of Seven</option>
     </select>
 
-    <button class="play-button">PLAY</a>
+    <form>
+        <input id='play-button' type='button' value='PLAY NOW!' onclick="window.location.href='https://jesslovell.github.io/card-game-war/war-game.html'" />
+    </form>
+
 
     <footer>
 

@@ -9,7 +9,6 @@ body {
 
 header {
     height: 100px;
-    margin-bottom: 20px;
 }
 
 div.button-group {
@@ -28,6 +27,8 @@ nav a {
     padding: 5px;
     margin-left: 5px;
     font-weight: bolder;
+    border-radius: 3px;
+
 }
 
 h1 {
@@ -40,7 +41,7 @@ h1 {
      1px -1px 0 rgb(255, 255, 255),
      -1px 1px 0 rgb(255, 255, 255),
       1px 1px 0 rgb(255, 255, 255);
-      margin-bottom: 20px;
+      margin-bottom: 10px;
 }
 
 h2 {
@@ -68,9 +69,10 @@ form {
      -1px 1px 0 rgb(255, 255, 255),
       1px 1px 0 rgb(255, 255, 255);
       margin-bottom: 10px;
+      border-radius: 3px;
 }
 
-input {
+ #name{
     margin-top: 7px;
     font-size: 22pt;
     margin-bottom: 20px;
@@ -81,7 +83,7 @@ label {
     text-align: center;
     letter-spacing: 2px;
     font-weight: bold;
-    font-size: 22pt;
+    font-size: 20pt;
     color: black;
     text-shadow:
     -1px -1px 0 rgb(255, 255, 255),  
@@ -93,19 +95,30 @@ label {
 
 select {
     display: block;
-    margin-left: 42.5%;
+    margin-left: 43.2%;
     font-weight: bold;
-    font-size: 22pt;
+    font-size: 20pt;
     color: black;
-  
+    margin-bottom: 25px;
+    cursor: pointer;
 }
 
-button {
-    background: white;
+ #play-button {
+    display: inline-block;
+    background: yellow;
     color: black;
-    border: 3px black;
+    text-shadow:
+    -1px -1px 0 rgb(255, 255, 255),  
+     1px -1px 0 rgb(255, 255, 255),
+     -1px 1px 0 rgb(255, 255, 255),
+      1px 1px 0 rgb(255, 255, 255);
+      margin-bottom: 7px;
+    border: black;
     text-decoration: none;
-    padding: 5px;
-    margin-left: 5px;
+    padding: 15px 35px 15px 35px;
     font-weight: bolder;
+    font-size: 24pt;
+    border-radius: 3px;
+    cursor: pointer;
+
 }
