@@ -1,4 +1,31 @@
+html { 
+    background: url("../img/standard-arena.jpg") no-repeat center center fixed; 
+    background-size: cover;
+}
+
 body {
-    font-family: 'Alfa Slab One', cursive;
-    font-family: 'Hind', sans-serif;
-    }
+    font-family: 'Anton', sans-serif;
+  }
+  
+  header {
+      height: 100px;
+  }
+  
+  div.button-group {
+      float: right;
+      margin-top: 40px;
+      font-size: 20pt;
+      margin-right: 20px;
+  }
+  
+  nav a {
+      background: white;
+      opacity: 0.5;
+      color: black;
+      border: 3px black;
+      text-decoration: none;
+      padding: 5px;
+      margin-left: 5px;
+      font-weight: bolder;
+      border-radius: 3px;
+  }

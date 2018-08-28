@@ -4,6 +4,107 @@ html {
 }
 
 body {
-    font-family: 'Alfa Slab One', cursive;
-    font-family: 'Hind', sans-serif;
+    font-family: 'Anton', sans-serif;
+  }
+  
+  header {
+      height: 100px;
+  }
+  
+  div.button-group {
+      float: right;
+      margin-top: 40px;
+      font-size: 20pt;
+      margin-right: 20px;
+  }
+  
+  nav a {
+    background: white;
+      opacity: 0.5;
+      color: black;
+      border: 3px black;
+      text-decoration: none;
+      padding: 5px;
+      margin-left: 5px;
+      font-weight: bolder;
+      border-radius: 3px;
+  }
+
+  main img {
+    width: auto;
+    height: auto;
+    max-width: 180px;
+  }
+
+  div.decks {
+    margin-left: 95px;
+    margin-bottom: 30px;
+  }
+
+  div.decks img:first-child {
+    margin-right: 270px;
+  }
+
+  div.decks img:last-child {
+    margin-left: 270px;
+  }
+
+  div.card-count img {
+    margin: 40px 0px 0px 350px;
+    max-width: 40px;
+  }
+
+div.card-count img:first-child {
+    margin-left: 460px;
 }
+
+h1 {
+    display: block;
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 84pt;
+    text-align: center;
+    text-shadow:
+    -1px -1px 0 rgb(255, 255, 255),  
+     1px -1px 0 rgb(255, 255, 255),
+     -1px 1px 0 rgb(255, 255, 255),
+      1px 1px 0 rgb(255, 255, 255);
+}
+
+h2 {
+    display: block;
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 36pt;
+    text-align: center;
+    text-shadow:
+    -1px -1px 0 rgb(255, 255, 255),  
+     1px -1px 0 rgb(255, 255, 255),
+     -1px 1px 0 rgb(255, 255, 255),
+      1px 1px 0 rgb(255, 255, 255);
+      margin-bottom: 20px;
+}
+
+h3 {
+    display: inline-block;
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 24pt;
+    text-align: center;
+    text-shadow:
+    -1px -1px 0 rgb(255, 255, 255),  
+     1px -1px 0 rgb(255, 255, 255),
+     -1px 1px 0 rgb(255, 255, 255),
+      1px 1px 0 rgb(255, 255, 255);
+      margin-bottom: 5px;
+}
+
+#cpu {
+   margin: 0px 955px 15px 110px;
+}
+
+hr {
+    width: 200px;  
+    border: 0;
+    height: 5px;
+    background: #333;
+    background-image: linear-gradient(to right, #444, #333, #444);
+}
+
