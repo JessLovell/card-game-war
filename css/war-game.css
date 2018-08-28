@@ -101,10 +101,21 @@ h3 {
 }
 
 hr {
-    width: 200px;  
+    display: inline-block;
+    width: 180px; 
     border: 0;
     height: 5px;
-    background: #333;
-    background-image: linear-gradient(to right, #444, #333, #444);
+    background: #000;
+    border: 1px white;
 }
+
+#cpu-line {
+    margin-left: 95px;
+}
+
+#user-line {
+    float: right;
+    margin-right: 75px;
+}
+
 
