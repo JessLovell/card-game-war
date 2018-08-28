@@ -169,10 +169,22 @@ function war (){
   }
 }
 
+makeEachCard();
+shuffleDeck();
+dealTheDeck();
+chooseYourCard();
+
 function userDeckClick(){
   userEl.src = userPlayerDeck[0].path;
   cpuEl.src = computerPlayerDeck[0].path;
-  setInterval(compareCards(), 2000);
+  setTimeout(compareCards(), 2000);
+  setTimeout(resetPlayingField, 2000);
 }
 
-document.getElementById("user-deck").addEventListener('click', userDeckClick);
+
+function resetPlayingField(){
+  userEl.src = 'img/red_back.png';
+  cpuEl.src = 'img/red_back.png';
+}
+
+document.getElementById('user-deck').addEventListener('click', userDeckClick);
