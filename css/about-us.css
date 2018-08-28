@@ -11,9 +11,9 @@ body {
     background-size: cover;
 }
 
-* {
+/* * {
     outline: 1px dashed white;
-}
+} */
 
 /* NAVIGATION */
 header {
@@ -42,15 +42,36 @@ nav a {
 
 
 /* MAIN */
-main {
-    width: auto;
-    height: auto;
-    margin: 0px auto;
-    display: inline-block;
-    margin-top: 30px;
-    display:inline-block;
+h1 {
+    display: block;
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 75pt;
+    text-align: center;
+    text-shadow:
+    -1px -1px 0 rgb(255, 255, 255),  
+    1px -1px 0 rgb(255, 255, 255),
+    -1px 1px 0 rgb(255, 255, 255),
+    1px 1px 0 rgb(255, 255, 255);
+    margin-bottom: 10px;
 }
 
+main, img, p, h2 {
+    margin: 50px;
+    width: 0px auto;
+    align-content: center;
+}
+h2 {
+    font-size: 20px;
+    text-align: center;
+}
+
+section {
+    display:inline-flex;
+    padding-top: 50px;
+}
+
+
+/* ANIMATION */
 /* entire container, keeps perspective */
 .flip-container {
 	perspective: 1000px;
@@ -67,9 +88,8 @@ main {
 
 /* flip speed goes here */
 .flipper {
-	transition: 1.0s;
+	transition: 1700ms;
 	transform-style: preserve-3d;
-
 	position: relative;
 }
 
