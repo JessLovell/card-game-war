@@ -30,32 +30,23 @@ body {
       border-radius: 3px;
   }
 
-  main img {
+main img {
     width: auto;
     height: auto;
     max-width: 180px;
-  }
+}
 
-  div.decks {
+div.decks {
     margin-left: 95px;
     margin-bottom: 30px;
-  }
+}
 
-  div.decks img:first-child {
+div.decks img:first-child {
     margin-right: 270px;
-  }
+}
 
-  div.decks img:last-child {
+div.decks img:last-child {
     margin-left: 270px;
-  }
-
-  div.card-count img {
-    margin: 40px 0px 0px 350px;
-    max-width: 40px;
-  }
-
-div.card-count img:first-child {
-    margin-left: 460px;
 }
 
 h1 {
@@ -97,16 +88,17 @@ h3 {
 }
 
 #cpu {
-   margin: 0px 955px 15px 110px;
+   margin: 0px 955px 10px 110px;
 }
 
 hr {
     display: inline-block;
-    width: 180px; 
+    width: 225px; 
     border: 0;
     height: 5px;
     background: #000;
-    border: 1px white;
+    border: 5px white;
+    margin-bottom: 15px;
 }
 
 #cpu-line {
@@ -118,4 +110,29 @@ hr {
     margin-right: 75px;
 }
 
+div.card-count img {
+    max-width: 50px;
+}
 
+#cpu-count-card {
+    margin-left: 95px;
+    float: left;
+}
+
+#user-count-card {
+    float: right;
+    margin-right: 75px;
+}
+
+#cpu-score-value {
+    display: inline-block;
+    margin-top: 23px;
+    margin-left: 10px     
+}
+
+#user-score-value {
+    float: right;
+    display: inline-block;
+    margin-top: 23px;
+    margin-right: 10px; 
+}
