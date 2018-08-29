@@ -37,16 +37,16 @@ main img {
 }
 
 div.decks {
-    margin-left: 95px;
+    margin-left: 7%;
     margin-bottom: 30px;
 }
 
 div.decks img:first-child {
-    margin-right: 270px;
+    margin-right: 20%;
 }
 
 div.decks img:last-child {
-    margin-left: 270px;
+    margin-left: 20%;
 }
 
 h1 {
@@ -88,7 +88,7 @@ h3 {
 }
 
 #cpu {
-   margin: 0px 955px 10px 110px;
+   margin: 0px 66% 10px 7.5%;
 }
 
 hr {
@@ -102,12 +102,12 @@ hr {
 }
 
 #cpu-line {
-    margin-left: 95px;
+    margin-left: 7%;
 }
 
 #user-line {
     float: right;
-    margin-right: 75px;
+    margin-right: 5%;
 }
 
 div.card-count img {
@@ -115,13 +115,14 @@ div.card-count img {
 }
 
 #cpu-count-card {
-    margin-left: 95px;
+    margin-left: 7%;
     float: left;
 }
 
 #user-count-card {
     float: right;
-    margin-right: 10px;
+
+    margin-right: 5%;
 }
 
 #cpu-score-value {
