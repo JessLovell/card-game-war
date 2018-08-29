@@ -121,6 +121,7 @@ div.card-count img {
 
 #user-count-card {
     float: right;
+
     margin-right: 5%;
 }
 
@@ -133,5 +134,5 @@ div.card-count img {
 #user-score-value {
     float: right;
     margin-top: 23px;
-    margin-right: 10px; 
+    margin-right: 85px; 
 }

@@ -7,11 +7,27 @@ var computerHoldPile = [];
 var userHoldPile = [];
 var gamePlayField = [];
 
+var playerName = localStorage.getItem('player');
+var setSelection = localStorage.getItem('sets');
+
 var userCardTracker = 0;
 var computerCardTracker = 0;
 
 var userEl = document.getElementById('in-play-user');
 var cpuEl = document.getElementById('in-play-cpu');
+
+
+function displayPlayerName () {
+  document.getElementById('user').innerHTML = playerName;
+}
+displayPlayerName();
+
+function displayInfo () {
+  document.getElementById('header-set').innerHTML = 'Best of ' + JSON.parse(setSelection);
+  document.getElementById('cpu-score-value').innerHTML = computerCardTracker + ' / Sets ' + JSON.parse(setSelection);
+  document.getElementById('user-score-value').innerHTML = userCardTracker + ' / Sets ' + JSON.parse(setSelection);
+}
+displayInfo();
 
 function DeckCreator (name, value){
   this.name = name;
