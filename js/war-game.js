@@ -86,10 +86,31 @@ function compareCards (){
     userPlayerDeck.splice(0, 1);
     userCardTracker += 2;
   } else {
-    war();
+    triggerWarImage();
+    document.getElementById('start-war').addEventListener('click', startWarEventHandler);
+    console.log('war is triggered');
   }
 }
 
+function triggerWarImage () {
+  var mainEl = document.getElementById('war-field');
+  var imgEl = document.createElement('img');
+
+  imgEl.src = 'img/honors_spade-14.png';
+  imgEl.alt = 'start-war-image';
+  imgEl.title = 'start-war-image';
+  imgEl.id = 'start-war';
+
+  mainEl.appendChild(imgEl);
+}
+
+function startWarEventHandler (event) {
+  var imgEl = document.getElementById('start-war');
+  if (event.target.title === 'start-war-image'){
+    imgEl.parentNode.removeChild(imgEl);
+    war();
+  }
+}
 
 
 function war (){
