@@ -173,7 +173,7 @@ label {
     cursor: pointer;
 }
 
-.user-moving-card {
+.user-moving-card-back {
     position: absolute;
     height: 275px;
     width: 180px;
@@ -183,8 +183,8 @@ label {
     transition: all 600ms;
     z-index: 20;
 }
-
-    .user-moving-card div {
+/* FLIPPING CARD BACK */
+    .user-moving-card-back div {
         position: absolute;
         height: 275px;
         width: 180px;
@@ -196,15 +196,16 @@ label {
         backface-visibility: hidden;
         border-radius: 2px;
     }
-
-    .user-moving-card .user-moving-card-back {
-        background: url(../img/yellow_back.png);
+/* FLIPPING CARD FACE */
+    .user-moving-card-back .user-moving-card-front {
+        background: url(../img/red_back.png);
+        background-size: 180px 275px;
         color: #FFF;
         -webkit-transform: rotateY(180deg);
         transform: rotateY(180deg);
     }
 
-label:hover .user-moving-card {
+label:hover .user-moving-card-back {
     -webkit-transform: rotateY(20deg);
     transform: rotateY(20deg);
     box-shadow: 0 20px 20px rgba(50,50,50,.2);
@@ -214,12 +215,12 @@ input {
     display: none;
 }
 
-:checked + .user-moving-card {
+:checked + .user-moving-card-back {
     transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
 }
 
-label:hover :checked + .user-moving-card {
+label:hover :checked + .user-moving-card-back {
     transform: rotateY(160deg);
     -webkit-transform: rotateY(160deg);
     box-shadow: 0 20px 20px rgba(255,255,255,.2);
