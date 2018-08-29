@@ -89,6 +89,7 @@ function displayCard (){
 }
 
 function compareCards (){
+  console.log(computerPlayerDeck[0].value, userPlayerDeck[0].value);
   if (computerPlayerDeck[0].value > userPlayerDeck[0].value){
     computerHoldPile.push(computerPlayerDeck[0]);
     computerHoldPile.push(userPlayerDeck[0]);
@@ -127,9 +128,8 @@ function startWarEventHandler (event) {
   var imgEl = document.getElementById('start-war');
   if (event.target.title === 'start-war-image'){
     imgEl.parentNode.removeChild(imgEl);
-    callWarCard();
-    war();
   }
+  callWarCard();
 }
 
 function warCardFlip (index, path) {
@@ -167,10 +167,13 @@ function callWarCard () {
   while (clickCounter < maxClicks) {
     if (clickCounter < maxClicks - 1){
       warCardFlip(clickCounter, 'img/green_back.png');
+      clickCounter++;
     } else {
-      warCardFlip(clickCounter, userPlayerDeck.length[lastIndex].path);
+      warCardFlip(clickCounter, userPlayerDeck[lastIndex].path);
+      clickCounter = maxClicks + 1;
     }
   }
+  war();
 }
 
 function war (){
