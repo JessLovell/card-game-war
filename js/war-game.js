@@ -225,3 +225,7 @@ function resetPlayingField(){
 }
 
 document.getElementById('user-deck').addEventListener('click', userDeckClick);
+
+$(document).on('click', '.cpu-flip-container', function () {
+  $(this).toggleClass('hover');
+});
