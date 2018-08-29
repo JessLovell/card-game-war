@@ -37,31 +37,17 @@ main img {
 }
 
 div.decks {
-    position: relative;
-    width: 100%;
-    height: 300px;
+    margin-left: 7%;
+    margin-bottom: 30px;
 }
 
 div.decks img:first-child {
-    position: absolute;
-    left: 5%;
+    margin-right: 20%;
 }
 
-div.decks img:nth-child(2) {
-    position: absolute;
-    left: 37%;
+div.decks img:last-child {
+    margin-left: 20%;
 }
-
-div.decks img:nth-child(3) {
-    position: absolute;
-    left: 52%;
-}
-
-div.decks img:nth-child(4) {
-    position: absolute;
-    right: 5%;
-}
-
 
 h1 {
     display: block;
@@ -102,7 +88,7 @@ h3 {
 }
 
 #cpu {
-   margin: 0px 67% 10px 6%;
+   margin: 0px 66% 10px 7.5%;
 }
 
 hr {
@@ -116,7 +102,7 @@ hr {
 }
 
 #cpu-line {
-    margin-left: 5%;
+    margin-left: 7%;
 }
 
 #user-line {
@@ -124,18 +110,12 @@ hr {
     margin-right: 5%;
 }
 
-div.score-board {
-    position: realtive;
-    width: 100%;
-
-}
-
-div.score-board img {
+div.card-count img {
     max-width: 50px;
 }
 
 #cpu-count-card {
-    margin-left: 5%;
+    margin-left: 7%;
     float: left;
 }
 
@@ -154,73 +134,4 @@ div.score-board img {
     float: right;
     margin-top: 23px;
     margin-right: 5%; 
-}
-
-/* FLIPPING USER CARD */
-label {
-    -webkit-perspective: 1000px;
-    perspective: 1000px;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    display: block;
-    width: 180px;
-    height: 275px;
-    position: absolute;
-    right: -1.25%;
-    top: 45.7%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-}
-
-.user-moving-card {
-    position: absolute;
-    height: 275px;
-    width: 180px;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    -webkit-transition: all 600ms;
-    transition: all 600ms;
-    z-index: 20;
-}
-
-    .user-moving-card div {
-        position: absolute;
-        height: 275px;
-        width: 180px;
-        background: url(../img/yellow_back.png);
-        background-size: 180px 275px;
-        text-align: center;
-        line-height: 200px;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        border-radius: 2px;
-    }
-
-    .user-moving-card .user-moving-card-back {
-        background: url(../img/yellow_back.png);
-        color: #FFF;
-        -webkit-transform: rotateY(180deg);
-        transform: rotateY(180deg);
-    }
-
-label:hover .user-moving-card {
-    -webkit-transform: rotateY(20deg);
-    transform: rotateY(20deg);
-    box-shadow: 0 20px 20px rgba(50,50,50,.2);
-}
-
-input {
-    display: none;
-}
-
-:checked + .user-moving-card {
-    transform: rotateY(180deg);
-    -webkit-transform: rotateY(180deg);
-}
-
-label:hover :checked + .user-moving-card {
-    transform: rotateY(160deg);
-    -webkit-transform: rotateY(160deg);
-    box-shadow: 0 20px 20px rgba(255,255,255,.2);
 }
