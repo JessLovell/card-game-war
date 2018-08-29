@@ -16,3 +16,14 @@ window.onclick = function (event) {
     }
   }
 };
+
+function gameInfo(event) {
+  var playerName = document.getElementById('name').value;
+  document.location = 'war-game.html';
+  var setNumber = document.getElementById('number-sets').value;
+
+  localStorage.setItem('player', playerName);
+  localStorage.setItem('sets', JSON.stringify(setNumber));
+}
+
+document.getElementById('play-button').addEventListener('click', gameInfo);
