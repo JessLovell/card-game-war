@@ -8,7 +8,7 @@ var userHoldPile = [];
 var gamePlayField = [];
 
 var playerName = localStorage.getItem('player');
-var setPlayed = 1;
+var setSelection = localStorage.getItem('sets');
 
 var userCardTracker = 0;
 var computerCardTracker = 0;
@@ -23,8 +23,11 @@ function displayPlayerName () {
 displayPlayerName();
 
 function displayInfo () {
-
+  document.getElementById('header-set').innerHTML = 'Best of ' + JSON.parse(setSelection);
+  document.getElementById('cpu-score-value').innerHTML = computerCardTracker + ' / Sets ' + JSON.parse(setSelection);
+  document.getElementById('user-score-value').innerHTML = userCardTracker + ' / Sets ' + JSON.parse(setSelection);
 }
+displayInfo();
 
 function DeckCreator (name, value){
   this.name = name;
