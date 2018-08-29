@@ -10,11 +10,12 @@ var gamePlayField = [];
 var playerName = localStorage.getItem('player');
 var setSelection = localStorage.getItem('sets');
 
-var userCardTracker = 0;
-var computerCardTracker = 0;
 
-var userEl = document.getElementById('in-play-user');
-var cpuEl = document.getElementById('in-play-cpu');
+var userEl = document.getElementById('user-deck');
+var cpuEl = document.getElementById('cpu-deck');
+
+var clickCounter = 0;
+var maxClicks = 0;
 
 
 function displayPlayerName () {
@@ -22,12 +23,14 @@ function displayPlayerName () {
 }
 displayPlayerName();
 
-function displayInfo () {
+function displayStats () {
   document.getElementById('header-set').innerHTML = 'Best of ' + JSON.parse(setSelection);
-  document.getElementById('cpu-score-value').innerHTML = computerCardTracker + ' / Sets ' + JSON.parse(setSelection);
-  document.getElementById('user-score-value').innerHTML = userCardTracker + ' / Sets ' + JSON.parse(setSelection);
+  document.getElementById('cpu-score-value').innerHTML = computerHoldPile.length + ' / Sets ' + JSON.parse(setSelection);
+  document.getElementById('user-score-value').innerHTML = userHoldPile.length + ' / Sets ' + JSON.parse(setSelection);
 }
-displayInfo();
+
+
+
 
 function DeckCreator (name, value){
   this.name = name;
@@ -86,13 +89,13 @@ function displayCard (){
 }
 
 function compareCards (){
+  console.log(computerPlayerDeck[0].value, userPlayerDeck[0].value);
   if (computerPlayerDeck[0].value > userPlayerDeck[0].value){
     computerHoldPile.push(computerPlayerDeck[0]);
     computerHoldPile.push(userPlayerDeck[0]);
 
     computerPlayerDeck.splice(0, 1);
     userPlayerDeck.splice(0, 1);
-    computerCardTracker += 2;
   }
   else if (userPlayerDeck[0].value > computerPlayerDeck[0].value){
     userHoldPile.push(computerPlayerDeck[0]);
@@ -100,12 +103,12 @@ function compareCards (){
 
     computerPlayerDeck.splice(0, 1);
     userPlayerDeck.splice(0, 1);
-    userCardTracker += 2;
   } else {
     triggerWarImage();
     document.getElementById('start-war').addEventListener('click', startWarEventHandler);
     console.log('war is triggered');
   }
+  displayStats();
 }
 
 function triggerWarImage () {
@@ -118,16 +121,61 @@ function triggerWarImage () {
   imgEl.id = 'start-war';
 
   mainEl.appendChild(imgEl);
+  document.getElementById('user-deck').removeEventListener('click', userDeckClick);
 }
 
 function startWarEventHandler (event) {
   var imgEl = document.getElementById('start-war');
   if (event.target.title === 'start-war-image'){
     imgEl.parentNode.removeChild(imgEl);
-    war();
   }
+  callWarCard();
+  setTimeout(resetPlayingField, 3000);
 }
 
+function warCardFlip (index, path) {
+  var mainEl = document.getElementById('war-field');
+  var imgEl = document.createElement('img');
+
+  imgEl.src = path;
+  imgEl.alt = `sacrifice-${index}`;
+  imgEl.title = `sacrifice-${index}`;
+  imgEl.id = `sacrifice-${index}`;
+
+  mainEl.appendChild(imgEl);
+}
+
+function callWarCard () {
+  //add event listener to flip card face-down
+  document.getElementById('user-deck').addEventListener('click', userDeckClick);
+  var clickCounter = 0;
+  var maxClicks = 0;
+  var lastIndex = 0;
+
+  //check the length of the user array to see how many are face-down
+  if (userPlayerDeck.length > 5){
+    maxClicks = 4;
+    lastIndex = 4;
+  } else{
+    for (var i = 0; i < (userPlayerDeck.length + 1); i++){
+      if(userPlayerDeck.length === i){
+        maxClicks = i - 1; 
+        lastIndex = i - 1; 
+      }
+    }
+  }
+
+  while (clickCounter < maxClicks) {
+    if (clickCounter < maxClicks - 1){
+      warCardFlip(clickCounter, 'img/green_back.png');
+      clickCounter++;
+    } else {
+      userEl.src = userPlayerDeck[lastIndex].path;
+      clickCounter = maxClicks + 1;
+    }
+  }
+  war();
+}
 
 function war (){
   if (computerPlayerDeck.length > 5 && userPlayerDeck.length > 5){
@@ -136,7 +184,6 @@ function war (){
       computerHoldPile.push(userPlayerDeck[0,1,2,3,4]);
       computerPlayerDeck.splice(0,5);
       userPlayerDeck.splice(0,5);
-      computerCardTracker += 10;
     }
   } else {
     if (computerPlayerDeck[4].value < userPlayerDeck[4].value){
@@ -144,7 +191,6 @@ function war (){
       userHoldPile.push(computerPlayerDeck[0,1,2,3,4]);
       computerPlayerDeck.splice(0,5);
       userPlayerDeck.splice(0,5);
-      userCardTracker += 10;
     }
   }
   if (computerPlayerDeck.length > 4 && userPlayerDeck.length > 4){
@@ -153,14 +199,12 @@ function war (){
       computerHoldPile.push(userPlayerDeck[0,1,2,3]);
       computerPlayerDeck.splice(0,4);
       userPlayerDeck.splice(0,4);
-      computerCardTracker += 8;
     } else {
       if (computerPlayerDeck[3].value < userPlayerDeck[3].value){
         userHoldPile.push(userPlayerDeck[0,1,2,3]);
         userHoldPile.push(computerPlayerDeck[0,1,2,3]);
         computerPlayerDeck.splice(0,4);
         userPlayerDeck.splice(0,4);
-        userCardTracker += 8;
       }
     }
   }if (computerPlayerDeck.length > 3 && userPlayerDeck.length > 3){
@@ -169,14 +213,12 @@ function war (){
       computerHoldPile.push(userPlayerDeck[0,1,2]);
       computerPlayerDeck.splice(0,3);
       userPlayerDeck.splice(0,3);
-      computerCardTracker += 6;
     } else {
       if (computerPlayerDeck[2].value < userPlayerDeck[2].value){
         userHoldPile.push(userPlayerDeck[0,1,2]);
         userHoldPile.push(computerPlayerDeck[0,1,2]);
         computerPlayerDeck.splice(0,3);
         userPlayerDeck.splice(0,3);
-        userCardTracker += 6;
       }
     }
   }if (computerPlayerDeck.length > 2 && userPlayerDeck.length > 2){
@@ -185,14 +227,12 @@ function war (){
       computerHoldPile.push(userPlayerDeck[0,1]);
       computerPlayerDeck.splice(0,2);
       userPlayerDeck.splice(0,2);
-      computerCardTracker += 4;
     } else {
       if (computerPlayerDeck[1].value < userPlayerDeck[1].value){
         userHoldPile.push(userPlayerDeck[0,1]);
         userHoldPile.push(computerPlayerDeck[0,1]);
         computerPlayerDeck.splice(0,2);
         userPlayerDeck.splice(0,2);
-        userCardTracker += 4;
       }
     }
   }if (computerPlayerDeck.length > 1 && userPlayerDeck.length > 1){
@@ -200,8 +240,6 @@ function war (){
     userHoldPile.push(userPlayerDeck[0]);
     computerPlayerDeck.splice(0,1);
     userPlayerDeck.splice(0,1);
-    computerCardTracker++;
-    userCardTracker++;
     return;
   }
 }
@@ -216,14 +254,18 @@ function userDeckClick(){
   cpuEl.src = computerPlayerDeck[0].path;
   setTimeout(compareCards(), 2000);
   setTimeout(resetPlayingField, 2000);
+  clickCounter++;
 }
 
 
 function resetPlayingField(){
-  userEl.src = 'img/red_back.png';
-  cpuEl.src = 'img/red_back.png';
+  userEl.src = 'img/yellow_back.png';
+  cpuEl.src = 'img/purple_back.png';
 }
 
+function removeWarCards() {
+
+}
 document.getElementById('user-deck').addEventListener('click', userDeckClick);
 
 $(document).on('click', '.cpu-flip-container', function () {
