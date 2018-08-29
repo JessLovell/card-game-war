@@ -16,6 +16,9 @@ var computerCardTracker = 0;
 var userEl = document.getElementById('in-play-user');
 var cpuEl = document.getElementById('in-play-cpu');
 
+var clickCounter = 0;
+var maxClicks = 0;
+
 
 function displayPlayerName () {
   document.getElementById('user').innerHTML = playerName;
@@ -124,10 +127,51 @@ function startWarEventHandler (event) {
   var imgEl = document.getElementById('start-war');
   if (event.target.title === 'start-war-image'){
     imgEl.parentNode.removeChild(imgEl);
+    callWarCard();
     war();
   }
 }
 
+function warCardFlip (index, path) {
+  var mainEl = document.getElementById('war-field');
+  var imgEl = document.createElement('img');
+
+  imgEl.src = path;
+  imgEl.alt = `sacrifice-${index}`;
+  imgEl.title = `sacrifice-${index}`;
+  imgEl.id = `sacrifice-${index}`;
+
+  mainEl.appendChild(imgEl);
+}
+
+function callWarCard () {
+  //add event listener to flip card face-down
+  document.getElementById('user-deck').addEventListener('click', userDeckClick);
+  var clickCounter = 0;
+  var maxClicks = 0;
+  var lastIndex = 0;
+
+  //check the length of the user array to see how many are face-down
+  if (userPlayerDeck.length > 5){
+    maxClicks = 4;
+    lastIndex = 4;
+  } else{
+    for (var i = 0; i < (userPlayerDeck.length + 1); i++){
+      if(userPlayerDeck.length === i){
+        maxClicks = i - 1; 
+        lastIndex = i - 1; 
+      }
+    }
+  }
+
+  while (clickCounter < maxClicks) {
+    if (clickCounter < maxClicks - 1){
+      warCardFlip(clickCounter, 'img/green_back.png');
+    } else {
+      warCardFlip(clickCounter, userPlayerDeck.length[lastIndex].path);
+    }
+  }
+}
 
 function war (){
   if (computerPlayerDeck.length > 5 && userPlayerDeck.length > 5){
@@ -216,6 +260,7 @@ function userDeckClick(){
   cpuEl.src = computerPlayerDeck[0].path;
   setTimeout(compareCards(), 2000);
   setTimeout(resetPlayingField, 2000);
+  clickCounter++;
 }
 
 
