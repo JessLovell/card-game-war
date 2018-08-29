@@ -7,11 +7,24 @@ var computerHoldPile = [];
 var userHoldPile = [];
 var gamePlayField = [];
 
+var playerName = localStorage.getItem('player');
+var setPlayed = 1;
+
 var userCardTracker = 0;
 var computerCardTracker = 0;
 
 var userEl = document.getElementById('in-play-user');
 var cpuEl = document.getElementById('in-play-cpu');
+
+
+function displayPlayerName () {
+  document.getElementById('user').innerHTML = playerName;
+}
+displayPlayerName();
+
+function displayInfo () {
+
+}
 
 function DeckCreator (name, value){
   this.name = name;
