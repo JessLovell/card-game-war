@@ -19,16 +19,12 @@ var cpuSetWins = 0;
 function displayPlayerName () {
   document.getElementById('user').innerHTML = playerName;
 }
-displayPlayerName();
 
 function displayStats () {
   document.getElementById('header-set').innerHTML = 'Best of ' + JSON.parse(setSelection);
-  document.getElementById('cpu-score-value').innerHTML = computerHoldPile.length + ' / Sets ' + JSON.parse(setSelection);
-  document.getElementById('user-score-value').innerHTML = userHoldPile.length + ' / Sets ' + JSON.parse(setSelection);
+  document.getElementById('cpu-score-value').innerHTML = computerHoldPile.length + ' / Sets Won: ' + cpuSetWins;
+  document.getElementById('user-score-value').innerHTML = userHoldPile.length + ' / Sets Won: ' + userSetWins;
 }
-
-
-
 
 function DeckCreator (name, value){
   this.name = name;
@@ -70,7 +66,7 @@ function shuffleDeck (){
 }
 
 function dealTheDeck (){
-  computerPlayerDeck = completeDeck.splice(25, 26);
+  computerPlayerDeck = completeDeck.splice(20, 26);
   userPlayerDeck = completeDeck;
 }
 
@@ -126,7 +122,7 @@ function warCardFlip (path, divId) {
   imgEl.src = path;
   imgEl.alt = 'sacrifice';
   imgEl.title = 'sacrifice';
-  imgEl.id = 'sacrifice';
+  imgEl.className = 'sacrifice';
 
   divEl.appendChild(imgEl);
 }
@@ -139,15 +135,15 @@ function callWarCard () {
   var userDivId = 'user-war-three';
   var cpuDivId = 'cpu-war-three';
   var lastIndex = 0;
-  if (userPlayerDeck.length > 5 && computerPlayerDeck.length > 5){
+  if (userPlayerDeck.length > 5 || computerPlayerDeck.length > 5){
     warCardFlip(sacrificeUserCards[2], userDivId);
     warCardFlip(sacrificeCpuCards[2], cpuDivId);
     lastIndex = 4;
-  } else if (userPlayerDeck.length === 4 && computerPlayerDeck.length === 4){
+  } else if (userPlayerDeck.length === 4 || computerPlayerDeck.length === 4){
     warCardFlip(sacrificeUserCards[1], userDivId);
     warCardFlip(sacrificeCpuCards[1], cpuDivId);
     lastIndex = 3;
-  } else if (userPlayerDeck.length === 3 && computerPlayerDeck.length === 3){
+  } else if (userPlayerDeck.length === 3 || computerPlayerDeck.length === 3){
     warCardFlip(sacrificeUserCards[0], userDivId);
     warCardFlip(sacrificeCpuCards[0], cpuDivId);
     lastIndex = 2;
@@ -228,19 +224,14 @@ function war (){
 }
 
 function removeWarCards() {
-  var cpuImgEl = document.getElementById('cpu-war-three');
-  cpuImgEl.parentNode.removeChild(cpuImgEl);
-
-  var userImgEl = document.getElementById('user-war-three');
-  userImgEl.parentNode.removeChild(userImgEl);
+  var elements = document.getElementsByClassName('sacrifice');
+  while(elements.length > 0){
+    elements[0].parentNode.removeChild(elements[0]);
+  }
 }
 
-makeEachCard();
-shuffleDeck();
-dealTheDeck();
-
 function userDeckClick(){
-  if (userPlayerDeck.length === 0 && computerPlayerDeck.length === 0) {
+  if  (userPlayerDeck.length === 0 || computerPlayerDeck.length === 0){
     declareWinner();
   }
   userEl.src = userPlayerDeck[0].path;
@@ -248,7 +239,6 @@ function userDeckClick(){
   setTimeout(compareCards(), 2000);
   setTimeout(resetPlayingField, 2000);
 }
-
 
 function resetPlayingField(){
   userEl.src = 'img/yellow_back.png';
@@ -274,4 +264,17 @@ function declareWinner() {
   }
   document.getElementById('overlay').addEventListener('click', startWarEventHandler);
 }
+
+function runTheCode() {
+  makeEachCard();
+  shuffleDeck();
+  displayPlayerName();
+  displayStats();
+  dealTheDeck();
+
+  document.getElementById('user-deck').addEventListener('click', userDeckClick);
+
+}
+
+runTheCode();
 
