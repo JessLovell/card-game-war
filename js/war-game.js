@@ -5,17 +5,12 @@ var computerPlayerDeck = [];
 var userPlayerDeck = [];
 var computerHoldPile = [];
 var userHoldPile = [];
-var gamePlayField = [];
 
 var playerName = localStorage.getItem('player');
 var setSelection = localStorage.getItem('sets');
 
-
 var userEl = document.getElementById('in-play-user');
 var cpuEl = document.getElementById('in-play-cpu');
-
-var clickCounter = 0;
-var maxClicks = 0;
 
 var sets = 0;
 var userSetWins = 0;
@@ -116,7 +111,7 @@ function triggerImage (path, description) {
 }
 
 function startWarEventHandler (event) {
-  var imgEl = document.getElementById('overlay');
+  var imgEl = document.getElementById('start-war');
   if (event.target.title === 'start-war-image'){
     imgEl.parentNode.removeChild(imgEl);
   }
@@ -158,10 +153,11 @@ function callWarCard () {
     lastIndex = 2;
   } else {
     lastIndex = 1;
-  } 
+  }
   userEl.src = userPlayerDeck[lastIndex].path;
   cpuEl.src = computerPlayerDeck[lastIndex].path;
   war();
+  setTimeout(removeWarCards, 2000);
 }
 
 function war (){
@@ -229,11 +225,14 @@ function war (){
     userPlayerDeck.splice(0,1);
     return;
   }
-  //place remove war cards function here
 }
 
 function removeWarCards() {
+  var cpuImgEl = document.getElementById('cpu-war-three');
+  cpuImgEl.parentNode.removeChild(cpuImgEl);
 
+  var userImgEl = document.getElementById('user-war-three');
+  userImgEl.parentNode.removeChild(userImgEl);
 }
 
 makeEachCard();
@@ -241,16 +240,13 @@ shuffleDeck();
 dealTheDeck();
 
 function userDeckClick(){
-  if (computerPlayerDeck.length === 0 && userPlayerDeck.length === 0) {
-    console.log('End of Game');
+  if (userPlayerDeck.length === 0 && computerPlayerDeck.length === 0) {
     declareWinner();
-    document.getElementById('start-war').addEventListener('click', startWarEventHandler);
   }
   userEl.src = userPlayerDeck[0].path;
   cpuEl.src = computerPlayerDeck[0].path;
   setTimeout(compareCards(), 2000);
   setTimeout(resetPlayingField, 2000);
-  clickCounter++;
 }
 
 
@@ -263,7 +259,6 @@ document.getElementById('user-deck').addEventListener('click', userDeckClick);
 
 function declareWinner() {
   console.log('Declare Winner');
-  
   if (userPlayerDeck.length === 0 && computerPlayerDeck.length === 0) {
     if(userHoldPile < computerHoldPile){
       triggerImage('img/set-loser.png', 'user-loses-set');
