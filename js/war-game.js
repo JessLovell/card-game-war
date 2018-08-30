@@ -166,69 +166,87 @@ function callWarCard () {
 function war (){
   if (computerPlayerDeck.length > 5 && userPlayerDeck.length > 5){
     if (computerPlayerDeck[4].value > userPlayerDeck[4].value){
-      computerHoldPile.push(computerPlayerDeck[0,1,2,3,4]);
-      computerHoldPile.push(userPlayerDeck[0,1,2,3,4]);
-      computerPlayerDeck.splice(0,5);
-      userPlayerDeck.splice(0,5);
-    }
-  } else {
-    if (computerPlayerDeck[4].value < userPlayerDeck[4].value){
-      userHoldPile.push(userPlayerDeck[0,1,2,3,4]);
-      userHoldPile.push(computerPlayerDeck[0,1,2,3,4]);
-      computerPlayerDeck.splice(0,5);
-      userPlayerDeck.splice(0,5);
+      computerHoldPile.push(...computerPlayerDeck.splice(0,5));
+      computerHoldPile.push(...userPlayerDeck.splice(0,5));
+      console.log('cpuWin5');
+    } else {
+      if (computerPlayerDeck[4].value < userPlayerDeck[4].value){
+        userHoldPile.push(...computerPlayerDeck.splice(0,5));
+        userHoldPile.push(...userPlayerDeck.splice(0,5));
+        console.log('userWin5');
+      }
     }
   }
-  if (computerPlayerDeck.length > 4 && userPlayerDeck.length > 4){
+
+
+
+  else if (computerPlayerDeck.length > 4 && userPlayerDeck.length > 4){
     if (computerPlayerDeck[3].value > userPlayerDeck[3].value){
-      computerHoldPile.push(computerPlayerDeck[0,1,2,3]);
-      computerHoldPile.push(userPlayerDeck[0,1,2,3]);
-      computerPlayerDeck.splice(0,4);
-      userPlayerDeck.splice(0,4);
+      computerHoldPile.push(...computerPlayerDeck.splice(0,4));
+      computerHoldPile.push(...userPlayerDeck.splice(0,4));
+      console.log('cpuWin4');
     } else {
       if (computerPlayerDeck[3].value < userPlayerDeck[3].value){
-        userHoldPile.push(userPlayerDeck[0,1,2,3]);
-        userHoldPile.push(computerPlayerDeck[0,1,2,3]);
-        computerPlayerDeck.splice(0,4);
-        userPlayerDeck.splice(0,4);
+        userHoldPile.push(...computerPlayerDeck.splice(0,4));
+        userHoldPile.push(...userPlayerDeck.splice(0,4));
+        console.log('userWin4');
       }
     }
-  }if (computerPlayerDeck.length > 3 && userPlayerDeck.length > 3){
+  }
+
+
+
+  else if (computerPlayerDeck.length > 3 && userPlayerDeck.length > 3){
     if (computerPlayerDeck[2].value > userPlayerDeck[2].value){
-      computerHoldPile.push(computerPlayerDeck[0,1,2]);
-      computerHoldPile.push(userPlayerDeck[0,1,2]);
-      computerPlayerDeck.splice(0,3);
-      userPlayerDeck.splice(0,3);
+      computerHoldPile.push(...computerPlayerDeck.splice(0,3));
+      computerHoldPile.push(...userPlayerDeck.splice(0,3));
+      console.log('cpuWin3');
     } else {
       if (computerPlayerDeck[2].value < userPlayerDeck[2].value){
-        userHoldPile.push(userPlayerDeck[0,1,2]);
-        userHoldPile.push(computerPlayerDeck[0,1,2]);
-        computerPlayerDeck.splice(0,3);
-        userPlayerDeck.splice(0,3);
+        userHoldPile.push(...userPlayerDeck.splice(0,3));
+        userHoldPile.push(...computerPlayerDeck.splice(0,3));
+        console.log('userWin3');
       }
     }
-  }if (computerPlayerDeck.length > 2 && userPlayerDeck.length > 2){
+  }
+
+
+
+  else if (computerPlayerDeck.length > 2 && userPlayerDeck.length > 2){
     if (computerPlayerDeck[1].value > userPlayerDeck[1].value){
-      computerHoldPile.push(computerPlayerDeck[0,1]);
-      computerHoldPile.push(userPlayerDeck[0,1]);
-      computerPlayerDeck.splice(0,2);
-      userPlayerDeck.splice(0,2);
+      computerHoldPile.push(...computerPlayerDeck.splice(0,2));
+      computerHoldPile.push(...userPlayerDeck.splice(0,2));
+      console.log('cpuWin2');
     } else {
       if (computerPlayerDeck[1].value < userPlayerDeck[1].value){
-        userHoldPile.push(userPlayerDeck[0,1]);
-        userHoldPile.push(computerPlayerDeck[0,1]);
-        computerPlayerDeck.splice(0,2);
-        userPlayerDeck.splice(0,2);
+        userHoldPile.push(...userPlayerDeck.splice(0,2));
+        userHoldPile.push(...computerPlayerDeck.splice(0,2));
+        console.log('userWin2');
       }
     }
-  }if (computerPlayerDeck.length > 1 && userPlayerDeck.length > 1){
-    computerHoldPile.push(computerPlayerDeck[0]);
-    userHoldPile.push(userPlayerDeck[0]);
-    computerPlayerDeck.splice(0,1);
-    userPlayerDeck.splice(0,1);
+  }
+
+
+
+  else if (computerPlayerDeck.length > 1 && userPlayerDeck.length > 1) {
+    computerHoldPile.push(...computerPlayerDeck.splice(0,1));
+    userHoldPile.push(...userPlayerDeck.splice(0,1));
+    console.log('warTie');
     return;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 function removeWarCards() {
   var elements = document.getElementsByClassName('sacrifice');
