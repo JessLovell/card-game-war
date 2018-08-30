@@ -17,7 +17,7 @@ window.onclick = function (event) {
   }
 };
 
-function gameInfo(event) {
+function gameInfo() {
   var playerName = document.getElementById('name').value;
   document.location = 'war-game.html';
   var setNumber = document.getElementById('number-sets').value;

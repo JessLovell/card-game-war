@@ -8,7 +8,7 @@ font-family: 'Anton', sans-serif;
 }
 
 header {
-height: 100px;
+height: 80px;
 }
 
 div.button-group {
@@ -46,50 +46,55 @@ top: 7%;
 
 div.decks img:first-child {
 position: absolute;
-left: 7%;
+left: 6%;
 }
 
 div.decks img:nth-child(2) {
 position: absolute;
-left: 37%;
+left: 34%;
+max-width: 220px;
 }
 
 div.decks img:nth-child(3) {
 position: absolute;
 left: 52%;
+max-width: 220px;
 }
 
 div.decks img:nth-child(4) {
 position: absolute;
-right: 7%;
+right: 5%;
 }
 
-h1 {
-display: block;
+div.headings {
+height: 175px;
+}
+
+div.headings h1 {
+position: absolute;
+top: 10%;
+left: 39.5%;
 font-family: 'Alfa Slab One', cursive;
 font-size: 84pt;
-text-align: center;
 text-shadow:
 -1px -1px 0 rgb(255, 255, 255),  
 1px -1px 0 rgb(255, 255, 255),
 -1px 1px 0 rgb(255, 255, 255),
 1px 1px 0 rgb(255, 255, 255);
-margin-bottom: 40px;
 }
 
-h2 {
+div.headings h2 {
 position: absolute;
-top: 26%;
+top: 23.5%;
 left: 42.5%;
 font-family: 'Alfa Slab One', cursive;
 font-size: 36pt;
-text-align: center;
+color: black;
 text-shadow:
 -1px -1px 0 rgb(255, 255, 255),  
 1px -1px 0 rgb(255, 255, 255),
 -1px 1px 0 rgb(255, 255, 255),
 1px 1px 0 rgb(255, 255, 255);
-margin-bottom: 20px;
 }
 
 h3 {
@@ -105,18 +110,6 @@ text-shadow:
 margin-bottom: 5px;
 }
 
-#cpu {
-position: absolute;
-top: 74%;
-left: 4.2%;
-}
-
-#user {
-position: absolute;
-top: 74%;
-right: 10%;
-}
-
 div.score-board {
 position: relative;
 width: 100%;
@@ -128,55 +121,64 @@ div.score-board img {
 max-width: 50px;
 }
 
+#cpu {
+position: absolute;
+left: 8%;
+}
+
+#user {
+position: absolute;
+right: 9%;
+}
+
 hr {
-display: block;
-width: 300px; 
+width: 350px; 
 border: 0;
 height: 5px;
-background: #000;
-border: 5px white;
+background: white;
+border: 5px black;
 margin-bottom: 15px;
 }
 
 #cpu-line {
 position: absolute;
-top: 8%;
-left: 4.2%;
+top: 15%;
+left: 4%;
 }
 
 #user-line {
 position: absolute;
-top: 8%;
-right: 4.2%;
+top: 15%;
+right: 1.5%;
 }
 
 #cpu-count-card {
 position: absolute;
-top: 20%;
+top: 27%;
 left: 4.2%;
 }
 
 #user-count-card {
 position: absolute;
-top: 20%;
-right: 21.5%;
+top: 27%;
+right: 22.5%;
 }
 
 #cpu-score-value {
 position: absolute;
-top: 30%;
-left: 9%;    
+top: 37%;
+left: 9.5%;    
 }
 
 #user-score-value {
 position: absolute;
-top: 30%;
-right: 2.5%; 
+top: 37%;
+right: 2%; 
 }
 
 #sacrifice img {
 position: absolute;
-top: 25%;
+top: 29%;
 left: 31%;
 height: auto;
 width: auto;
@@ -185,7 +187,7 @@ max-width: 40%;
 
 #overlay img {
 position: absolute;
-top: 25%;
+top: 29%;
 left: 31%;
 height: auto;
 width: auto;
@@ -194,10 +196,11 @@ max-width: 40%;
 
 #cpu-war-three {
 position: absolute;
-left: 22%;
+
+left: 20%;
 }
 
 #user-war-three {
 position: absolute;
-right: 34%;
+right: 31.5%;
 }
