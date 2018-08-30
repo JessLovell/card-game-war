@@ -22,15 +22,33 @@
     <main id='war-field'>
         <h1>WAR</h1>
         <h2 id='header-set'></h2>
-        <!-- needs number fed into set -->
 
         <div class='decks'>
             <img id='cpu-deck' src='img/purple_back.png' />
-            <img id='in-play-cpu' src='img/red_back.png' />
-            <img id='in-play-user' src='img/red_back.png' />
+            <img id='in-play-cpu' src='img/purple_back.png' />
+            <img id='in-play-user' src='img/yellow_back.png' />
             <img id='user-deck' src='img/yellow_back.png' />
+          
+            <label class='user-checkbox'>
+                <input type='checkbox' />
+                <div class='user-moving-card'>
+                    <div class='user-moving-card-front'></div>
+                    <div class='user-moving-card-back'></div>
+                </div>
+            </label>
+            <label class='cpu-checkbox'>
+                <input type='checkbox' />
+                <div class='cpu-moving-card'>
+                    <div class='cpu-moving-card-front'></div>
+                    <div class='cpu-moving-card-back'></div>
+                </div>
+            </label>
         </div>
 
+        <div id='cpu-war-three'></div>
+        <div id='user-war-three'></div>
+
+        </div>
         <h3 id='cpu'>Nemesis</h3>
         <h3 id='user'></h3>
         <hr id='cpu-line'>
@@ -42,6 +60,11 @@
             <h3 id='user-score-value'></h3>
             <img id='user-count-card' src='img/KC.png' />
         </div>
+
+        <div class='overlay'>
+        </div>
+
+
     </main>
     <footer>
 
