@@ -174,6 +174,9 @@ function callWarCard () {
   userEl.src = userPlayerDeck[lastIndex].path;
   cpuEl.src = computerPlayerDeck[lastIndex].path;
   war();
+  setTimeout(removeWarCards, 2000);
+
+  console.log('It\'s been 7 seconds');
 }
 
 function war (){
@@ -244,8 +247,11 @@ function war (){
   //place remove war cards function here
 }
 
-function removeWarCards() {
-
+function removeWarCards(path) {
+  var cpuImgEl = document.getElementById('cpu-war-three');
+  cpuImgEl.parentNode.removeChild(cpuImgEl);
+  var userImgEl = document.getElementById('user-war-three');
+  userImgEl.parentNode.removeChild(userImgEl);
 }
 
 makeEachCard();
