@@ -11,12 +11,15 @@ var playerName = localStorage.getItem('player');
 var setSelection = localStorage.getItem('sets');
 
 
-var userEl = document.getElementById('user-deck');
-var cpuEl = document.getElementById('cpu-deck');
+var userEl = document.getElementById('in-play-user');
+var cpuEl = document.getElementById('in-play-cpu');
 
 var clickCounter = 0;
 var maxClicks = 0;
 
+var sets = 0;
+var userSetWins = 0;
+var cpuSetWins = 0;
 
 function displayPlayerName () {
   document.getElementById('user').innerHTML = playerName;
@@ -104,19 +107,20 @@ function compareCards (){
     computerPlayerDeck.splice(0, 1);
     userPlayerDeck.splice(0, 1);
   } else {
-    triggerWarImage();
-    document.getElementById('start-war').addEventListener('click', startWarEventHandler);
+    triggerImage('img/prepare-for-war.png', 'start-war-img');
+    document.getElementById('overlay').addEventListener('click', startWarEventHandler);
     console.log('war is triggered');
   }
   displayStats();
+
 }
 
-function triggerWarImage () {
-  var mainEl = document.getElementById('war-field');
+function triggerImage (path, description) {
+  var mainEl = document.getElementById('overlay');
   var imgEl = document.createElement('img');
 
-  imgEl.src = 'img/honors_spade-14.png';
-  imgEl.alt = 'start-war-image';
+  imgEl.src = path;
+  imgEl.alt = description;
   imgEl.title = 'start-war-image';
   imgEl.id = 'start-war';
 
@@ -125,7 +129,7 @@ function triggerWarImage () {
 }
 
 function startWarEventHandler (event) {
-  var imgEl = document.getElementById('start-war');
+  var imgEl = document.getElementById('overlay');
   if (event.target.title === 'start-war-image'){
     imgEl.parentNode.removeChild(imgEl);
   }
@@ -133,47 +137,42 @@ function startWarEventHandler (event) {
   setTimeout(resetPlayingField, 3000);
 }
 
-function warCardFlip (index, path) {
-  var mainEl = document.getElementById('war-field');
+function warCardFlip (path, divId) {
+  var divEl = document.getElementById(divId);
   var imgEl = document.createElement('img');
 
   imgEl.src = path;
-  imgEl.alt = `sacrifice-${index}`;
-  imgEl.title = `sacrifice-${index}`;
-  imgEl.id = `sacrifice-${index}`;
+  imgEl.alt = 'sacrifice';
+  imgEl.title = 'sacrifice';
+  imgEl.id = 'sacrifice';
 
-  mainEl.appendChild(imgEl);
+  divEl.appendChild(imgEl);
 }
 
+
 function callWarCard () {
-  //add event listener to flip card face-down
   document.getElementById('user-deck').addEventListener('click', userDeckClick);
-  var clickCounter = 0;
-  var maxClicks = 0;
+  var sacrificeCards = ['img/purple_back.png','img/purple-two.png','img/purple-three.png'];
+  var userDivId = 'user-war-three';
+  var cpuDivId = 'cpu-war-three';
   var lastIndex = 0;
-
-  //check the length of the user array to see how many are face-down
-  if (userPlayerDeck.length > 5){
-    maxClicks = 4;
+  if (userPlayerDeck.length > 5 && computerPlayerDeck.length > 5){
+    warCardFlip(sacrificeCards[2], userDivId);
+    warCardFlip(sacrificeCards[2], cpuDivId);
     lastIndex = 4;
-  } else{
-    for (var i = 0; i < (userPlayerDeck.length + 1); i++){
-      if(userPlayerDeck.length === i){
-        maxClicks = i - 1; 
-        lastIndex = i - 1; 
-      }
-    }
-  }
-
-  while (clickCounter < maxClicks) {
-    if (clickCounter < maxClicks - 1){
-      warCardFlip(clickCounter, 'img/green_back.png');
-      clickCounter++;
-    } else {
-      userEl.src = userPlayerDeck[lastIndex].path;
-      clickCounter = maxClicks + 1;
-    }
-  }
+  } else if (userPlayerDeck.length === 4 && computerPlayerDeck.length === 4){
+    warCardFlip(sacrificeCards[1], userDivId);
+    warCardFlip(sacrificeCards[1], cpuDivId);
+    lastIndex = 3;
+  } else if (userPlayerDeck.length === 3 && computerPlayerDeck.length === 3){
+    warCardFlip(sacrificeCards[0], userDivId);
+    warCardFlip(sacrificeCards[0], cpuDivId);
+    lastIndex = 2;
+  } else {
+    lastIndex = 1;
+  } 
+  userEl.src = userPlayerDeck[lastIndex].path;
+  cpuEl.src = computerPlayerDeck[lastIndex].path;
   war();
 }
 
@@ -242,6 +241,11 @@ function war (){
     userPlayerDeck.splice(0,1);
     return;
   }
+  //place remove war cards function here
+}
+
+function removeWarCards() {
+
 }
 
 makeEachCard();
@@ -250,6 +254,11 @@ dealTheDeck();
 chooseYourCard();
 
 function userDeckClick(){
+  if (computerPlayerDeck.length === 0 && userPlayerDeck.length === 0) {
+    console.log('End of Game');
+    declareWinner();
+    document.getElementById('start-war').addEventListener('click', startWarEventHandler);
+  }
   userEl.src = userPlayerDeck[0].path;
   cpuEl.src = computerPlayerDeck[0].path;
   setTimeout(compareCards(), 2000);
@@ -263,7 +272,21 @@ function resetPlayingField(){
   cpuEl.src = 'img/purple_back.png';
 }
 
-function removeWarCards() {
-
-}
 document.getElementById('user-deck').addEventListener('click', userDeckClick);
+
+function declareWinner() {
+  console.log('Declare Winner');
+  if (userPlayerDeck.length === 0 && computerPlayerDeck.length === 0) {
+    if(userHoldPile < computerHoldPile){
+      sets++;
+      userSetWins++;
+    } else if (userHoldPile > computerHoldPile) {
+      sets++;
+      cpuSetWins++;
+    } else {
+      //add something
+    }
+  }
+  triggerImage('img/honor_diamond.png', 'set-winner');
+}
+
