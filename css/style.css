@@ -1,143 +1,143 @@
 html { 
-    background: url("../img/standard-arena.jpg") no-repeat center center fixed; 
-    background-size: cover;
-  }
+background: url("../img/standard-arena.jpg") no-repeat center center fixed; 
+background-size: cover;
+}
 
 body {
-  font-family: 'Anton', sans-serif;
+font-family: 'Anton', sans-serif;
 }
 
 header {
-    height: 100px;
+height: 100px;
 }
 
 div.button-group {
-    float: right;
-    margin-top: 40px;
-    font-size: 20pt;
-    margin-right: 20px;
+float: right;
+margin-top: 40px;
+font-size: 20pt;
+margin-right: 20px;
 }
 
 nav a {
-    background: white;
-    opacity: 0.5;
-    color: black;
-    border: 3px black;
-    text-decoration: none;
-    padding: 5px;
-    margin-left: 5px;
-    font-weight: bolder;
-    border-radius: 3px;
+background: white;
+opacity: 0.5;
+color: black;
+border: 3px black;
+text-decoration: none;
+padding: 5px;
+margin-left: 5px;
+font-weight: bolder;
+border-radius: 3px;
 
 }
 
 
 
 h1 {
-    display: block;
-    font-family: 'Alfa Slab One', cursive;
-    font-size: 200pt;
-    text-align: center;
-    text-shadow:
-    -1px -1px 0 rgb(255, 255, 255),  
-     1px -1px 0 rgb(255, 255, 255),
-     -1px 1px 0 rgb(255, 255, 255),
-      1px 1px 0 rgb(255, 255, 255);
-      margin-bottom: 10px;
+display: block;
+font-family: 'Alfa Slab One', cursive;
+font-size: 200pt;
+text-align: center;
+text-shadow:
+-1px -1px 0 rgb(255, 255, 255),  
+1px -1px 0 rgb(255, 255, 255),
+-1px 1px 0 rgb(255, 255, 255),
+1px 1px 0 rgb(255, 255, 255);
+margin-bottom: 10px;
 }
 
 h2 {
-    display: block;
-    font-family: 'Alfa Slab One', cursive;
-    font-size: 48pt;
-    text-align: center;
-    letter-spacing: 5px;
-    text-shadow:
-    -1px -1px 0 rgb(255, 255, 255),  
-     1px -1px 0 rgb(255, 255, 255),
-     -1px 1px 0 rgb(255, 255, 255),
-      1px 1px 0 rgb(255, 255, 255); 
+display: block;
+font-family: 'Alfa Slab One', cursive;
+font-size: 48pt;
+text-align: center;
+letter-spacing: 5px;
+text-shadow:
+-1px -1px 0 rgb(255, 255, 255),  
+1px -1px 0 rgb(255, 255, 255),
+-1px 1px 0 rgb(255, 255, 255),
+1px 1px 0 rgb(255, 255, 255); 
 }
 
 form {
-    text-align: center;
-    letter-spacing: 2px;
-    font-weight: bold;
-    font-size: 22pt;
-    color: black;
-    text-shadow:
-    -1px -1px 0 rgb(255, 255, 255),  
-     1px -1px 0 rgb(255, 255, 255),
-     -1px 1px 0 rgb(255, 255, 255),
-      1px 1px 0 rgb(255, 255, 255);
-      margin: 15px;
-      border-radius: 3px;
-      padding: 3px;
+text-align: center;
+letter-spacing: 2px;
+font-weight: bold;
+font-size: 22pt;
+color: black;
+text-shadow:
+-1px -1px 0 rgb(255, 255, 255),  
+1px -1px 0 rgb(255, 255, 255),
+-1px 1px 0 rgb(255, 255, 255),
+1px 1px 0 rgb(255, 255, 255);
+margin: 15px;
+border-radius: 3px;
+padding: 3px;
 }
 
- #name{
-    margin-top: 12px;
-    font-size: 22pt;
-    margin-bottom: 20px;
+#name{
+margin-top: 12px;
+font-size: 22pt;
+margin-bottom: 20px;
 }
 
 label {
-    display: block;
-    text-align: center;
-    letter-spacing: 2px;
-    font-weight: bold;
-    font-size: 20pt;
-    color: black;
-    text-shadow:
-    -1px -1px 0 rgb(255, 255, 255),  
-     1px -1px 0 rgb(255, 255, 255),
-     -1px 1px 0 rgb(255, 255, 255),
-      1px 1px 0 rgb(255, 255, 255);
-      margin: 15px;
+display: block;
+text-align: center;
+letter-spacing: 2px;
+font-weight: bold;
+font-size: 20pt;
+color: black;
+text-shadow:
+-1px -1px 0 rgb(255, 255, 255),  
+1px -1px 0 rgb(255, 255, 255),
+-1px 1px 0 rgb(255, 255, 255),
+1px 1px 0 rgb(255, 255, 255);
+margin: 15px;
 }
 
 select {
-    display: block;
-    margin-left: 43.2%;
-    font-weight: bold;
-    font-size: 20pt;
-    color: black;
-    margin-bottom: 25px;
-    cursor: pointer;
+display: block;
+margin-left: 43.2%;
+font-weight: bold;
+font-size: 20pt;
+color: black;
+margin-bottom: 25px;
+cursor: pointer;
 }
 
- #play-button {
-    display: inline-block;
-    background: yellow;
-    color: black;
-    text-shadow:
-    -1px -1px 0 rgb(255, 255, 255),  
-     1px -1px 0 rgb(255, 255, 255),
-     -1px 1px 0 rgb(255, 255, 255),
-      1px 1px 0 rgb(255, 255, 255);
-      margin: 10px;
-    border: black;
-    text-decoration: none;
-    padding: 15px 35px 15px 35px;
-    font-weight: bolder;
-    font-size: 24pt;
-    border-radius: 3px;
-    cursor: pointer;
+#play-button {
+display: inline-block;
+background: yellow;
+color: black;
+text-shadow:
+-1px -1px 0 rgb(255, 255, 255),  
+1px -1px 0 rgb(255, 255, 255),
+-1px 1px 0 rgb(255, 255, 255),
+1px 1px 0 rgb(255, 255, 255);
+margin: 10px;
+border: black;
+text-decoration: none;
+padding: 15px 35px 15px 35px;
+font-weight: bolder;
+font-size: 24pt;
+border-radius: 3px;
+cursor: pointer;
 
 }
 
 p {
-    width: 960px;
-    margin-top: 10px;
-    margin-left: 15%;
-    text-align: justify;
-    font-family: 'Anton', cursive;
-    font-size: 16pt;
-    letter-spacing: 2px;
-    line-height: 24pt;
-    text-shadow:
-    -1px -1px 0 rgb(255, 255, 255),  
-     1px -1px 0 rgb(255, 255, 255),
-     -1px 1px 0 rgb(255, 255, 255),
-      1px 1px 0 rgb(255, 255, 255); 
+width: 960px;
+margin-top: 10px;
+margin-left: 15%;
+text-align: justify;
+font-family: 'Anton', cursive;
+font-size: 16pt;
+letter-spacing: 2px;
+line-height: 24pt;
+text-shadow:
+-1px -1px 0 rgb(255, 255, 255),  
+1px -1px 0 rgb(255, 255, 255),
+-1px 1px 0 rgb(255, 255, 255),
+1px 1px 0 rgb(255, 255, 255); 
 }
