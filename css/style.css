@@ -3,6 +3,10 @@ background: url("../img/standard-arena.jpg") no-repeat center center fixed;
 background-size: cover;
 }
 
+/* * {
+    outline: 1px dashed white;
+} */
+
 body {
 font-family: 'Anton', sans-serif;
 }

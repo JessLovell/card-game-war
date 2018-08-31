@@ -161,7 +161,7 @@ function callWarCard() {
   cpuEl.src = computerPlayerDeck[lastIndex].path;
 
   war();
-  setTimeout(removeWarCards, 2000);
+  setTimeout(removeWarCards, 1000);
 }
 
 function war (){

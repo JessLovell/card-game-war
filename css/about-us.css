@@ -10,9 +10,9 @@ background: url("../img/standard-arena.jpg") no-repeat center center fixed;
 background-size: cover;
 }
 
-* {
+/* * {
 outline: 1px dashed white;
-}
+} */
 
 /* NAVIGATION */
 header {
@@ -54,18 +54,32 @@ margin-bottom: 10px;
 margin: 30px 0px 0px 50px;
 }
 
-main, img, p, h2 {
-margin: 50px;
+main img {
+margin: 40px;
+width: 0px auto;
+align-content: center;
+max-width: 220px;
+border-radius: 20px;
+outline: 2px black;
+}
+
+p {
+font-size: 14pt;
+margin: 20px;
 width: 0px auto;
 align-content: center;
 }
+
 h2 {
-font-size: 20px;
+margin: 10px;
+font-size: 20pt;
+width: 0px auto;
 text-align: center;
+font-weight: bolder;
 }
 
 section {
-display:inline-flex;
+display: inline-flex;
 padding-top: 50px;
 }
 
@@ -73,16 +87,22 @@ padding-top: 50px;
 /* ANIMATION */
 /* entire container, keeps perspective */
 .flip-container {
+
+margin: 40px 0px 0px 50px;
 perspective: 1000px;
+border-radius: 25px;
+background: url(../img/ornate-card-back.jpg);
+background-size: 300px 400px;
 }
+
 /* flip the pane when hovered */
 .flip-container:hover .flipper, .flip-container.hover .flipper {
 transform: rotateY(180deg);
 }
 
 .flip-container, .front, .back {
-width: 320px;
-height: 480px;
+width: 300px;
+height: 400px;
 }
 
 /* flip speed goes here */
@@ -109,5 +129,7 @@ transform: rotateY(0deg);
 
 /* back, initially hidden pane */
 .back {
+background: white;
 transform: rotateY(180deg);
+opacity: .9;
 }

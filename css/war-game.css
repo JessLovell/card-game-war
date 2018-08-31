@@ -3,6 +3,10 @@ background: url("../img/standard-arena.jpg") no-repeat center center fixed;
 background-size: cover;
 }
 
+/* * {
+    outline: 1px dashed white;
+} */
+
 body {
 font-family: 'Anton', sans-serif;
 }
@@ -185,6 +189,7 @@ left: 31%;
 height: auto;
 width: auto;
 max-width: 40%;
+cursor: pointer;
 }
 
 #overlay img {
@@ -194,6 +199,7 @@ left: 31%;
 height: auto;
 width: auto;
 max-width: 40%;
+cursor: pointer;
 }
 
 #cpu-war-three {
@@ -204,4 +210,16 @@ left: 20%;
 #user-war-three {
 position: absolute;
 right: 31.5%;
+}
+
+#user-deck:hover {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: all 600ms;
+    transition: all 600ms;
+    z-index: 20;
+    -webkit-transform: rotateX(20deg);
+    transform: rotateX(20deg);
+    box-shadow: 0 20px 20px rgba(50,50,50,.2);
+    cursor: pointer;
 }
