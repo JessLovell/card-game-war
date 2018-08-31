@@ -16,6 +16,17 @@ window.onclick = function (event) {
     }
   }
 };
+function resetSetGameScores() {
+  localStorage.setItem('computerHoldPile', 0);
+  localStorage.setItem('userHoldPile', 0);
+}
+
+function resetEntireGameScores() {
+  localStorage.setItem('userSetWins', 0);
+  localStorage.setItem('cpuSetWins', 0);
+  localStorage.setItem('computerHoldPile', 0);
+  localStorage.setItem('userHoldPile', 0);
+}
 
 function gameInfo(event) {
   var playerName = document.getElementById('name').value;

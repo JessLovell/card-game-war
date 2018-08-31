@@ -1,10 +1,22 @@
 'use strict';
 
-var completeDeck = []; 
+var completeDeck = [];
 var computerPlayerDeck = [];
 var userPlayerDeck = [];
+
 var computerHoldPile = [];
+if (localStorage.getItem('computerHoldPile') === null){
+  userHoldPile = 0;
+} else {
+  userHoldPile = localStorage.getItem('computerHoldPile');
+}
+
 var userHoldPile = [];
+if (localStorage.getItem('userHoldPile') === null){
+  userHoldPile = 0;
+} else {
+  userHoldPile = localStorage.getItem('userHoldPile');
+}
 
 var playerName = localStorage.getItem('player');
 var setSelection = localStorage.getItem('sets');
@@ -13,8 +25,24 @@ var userEl = document.getElementById('in-play-user');
 var cpuEl = document.getElementById('in-play-cpu');
 
 var sets = 0;
+if (localStorage.getItem('sets') === null){
+  sets = 0;
+} else {
+  sets = localStorage.getItem('sets');
+}
+
 var userSetWins = 0;
+if (localStorage.getItem('userSetWins') === null){
+  userSetWins = 0;
+} else {
+  userSetWins = localStorage.getItem('userSetWins');
+}
 var cpuSetWins = 0;
+if (localStorage.getItem('cpuSetWins') === null){
+  cpuSetWins = 0;
+} else {
+  cpuSetWins = localStorage.getItem('cpuSetWins');
+}
 
 function displayPlayerName () {
   document.getElementById('user').innerHTML = playerName;
@@ -262,10 +290,12 @@ function declareWinner() {
       triggerImage('img/set-loser.png', 'user-loses-set');
       sets++;
       userSetWins++;
+      localStorage.setItem('userSetWins', userSetWins);
     } else if (userHoldPile > computerHoldPile) {
       triggerImage('img/set-winner.png', 'user-loses-set');
       sets++;
       cpuSetWins++;
+      localStorage.setItem('cpuSetWins', cpuSetWins);
     } else {
       triggerImage('img/set-loser.png', 'user-loses-set');
     }
@@ -275,18 +305,18 @@ function declareWinner() {
 }
 
 function runTheCode() {
-  completeDeck = []; 
+  completeDeck = [];
   computerPlayerDeck = [];
   userPlayerDeck = [];
   computerHoldPile = [];
   userHoldPile = [];
+  resetSetGameScores();
 
   makeEachCard();
   shuffleDeck();
   displayPlayerName();
   displayStats();
   dealTheDeck();
-
   document.getElementById('user-deck').addEventListener('click', userDeckClick);
 }
 runTheCode();
@@ -298,12 +328,16 @@ function resetSet (){
   }
   if (sets < JSON.parse(setSelection)){
     setTimeout(runTheCode, 5000);
+
   } else {
     if (userSetWins > cpuSetWins) {
       triggerImage('img/total-victory.png', 'you-win');
+
     } else {
       triggerImage('img/failure.png', 'you-lose');
+
     }
+    resetEntireGameScores();
   }
 }
 
