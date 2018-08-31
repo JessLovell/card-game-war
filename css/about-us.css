@@ -16,7 +16,7 @@ outline: 1px dashed white;
 
 /* NAVIGATION */
 header {
-height: 100px;
+height: 200px;
 font-family: 'Anton', sans-serif;
 }
 
@@ -58,13 +58,13 @@ main img {
 margin: 40px;
 width: 0px auto;
 align-content: center;
-max-width: 220px;
+max-width: 270px;
 border-radius: 20px;
 outline: 2px black;
 }
 
 p {
-font-size: 14pt;
+font-size: 16pt;
 margin: 20px;
 width: 0px auto;
 align-content: center;
@@ -72,7 +72,7 @@ align-content: center;
 
 h2 {
 margin: 10px;
-font-size: 20pt;
+font-size: 22pt;
 width: 0px auto;
 text-align: center;
 font-weight: bolder;
@@ -88,11 +88,11 @@ padding-top: 50px;
 /* entire container, keeps perspective */
 .flip-container {
 
-margin: 40px 0px 0px 50px;
+margin: 50px 0px 0px 60px;
 perspective: 1000px;
 border-radius: 25px;
 background: url(../img/ornate-card-back.jpg);
-background-size: 300px 400px;
+background-size: 350px 450px;
 }
 
 /* flip the pane when hovered */
@@ -101,8 +101,8 @@ transform: rotateY(180deg);
 }
 
 .flip-container, .front, .back {
-width: 300px;
-height: 400px;
+width: 350px;
+height: 450px;
 }
 
 /* flip speed goes here */
